@@ -21,9 +21,34 @@ var tokenize = (text) => {
  * order
  */
 var minDistance = (text,searchWords) => {
-	words = tokenize(text);
-	// TODO
-	return undefined;
+    let words = tokenize(text);
+    let distance = Number.MAX_VALUE;
+
+    for (let x = 0; x < words.length; x++) {
+        if (words[x] === searchWords[0]) {
+            for (let y = x; y < words.length; y++) {
+                if (words[y] === searchWords[1]) {
+                    if ((y - x - 1) < distance) {
+                        distance = y - x - 1;
+                    }
+                }
+            }
+        }
+    }
+
+    for (let x = 0; x < words.length; x++) {
+        if (words[x] === searchWords[1]) {
+            for (let y = x; y < words.length; y++) {
+                if (words[y] === searchWords[0]) {
+                    if ((y - x - 1) < distance) {
+                        distance = y - x - 1;
+                    }
+                }
+            }
+        }
+    }
+
+    return distance;
 }
 
 

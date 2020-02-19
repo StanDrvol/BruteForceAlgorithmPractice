@@ -3,8 +3,17 @@
  * sum to a specific value v.
  */
 var pairsThatSum = (array,v) => {
-	// TODO
-	return [];
+    let toReturn = [];
+
+    for (i = 0; i < array.length; ++i) {
+        for (j = i; j < array.length; ++j) {
+            if ((array[i] + array[j]) === v) {
+                toReturn.push([array[i], array[j]]);
+            }
+        }
+    }
+
+    return toReturn;
 }
 
 /*
